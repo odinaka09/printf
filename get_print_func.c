@@ -9,7 +9,10 @@ int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int)
 {
 	print_t pr[] = {
 		{"c", print_chr}, {"s", print_str}, {"%", print_prg},
-		{" %", print_prg}, {NULL, NULL},
+		{" %", print_prg}, {'d', _print_dec},{'i', _print_dec},
+		{'b', _print_binary},{'x', _print_hexa_lower},
+		{'X', _print_hexa_upper},{'o', _print_octal},
+		{'u', _print_unsigned}, {NULL, NULL},
 	};
 	int i = 0, j = 0, first_index;
 

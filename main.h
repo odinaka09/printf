@@ -28,5 +28,15 @@ int (*get_print_func(const char *s, int index))(va_list, char *, unsigned int);
 int ev_print_func(const char *s, int index);
 unsigned int handl_buf(char *buf, char c, unsigned int ibuf);
 int print_buf(char *buf, unsigned int nbuf);
+void print_number(long n);
+int count_digits(long n);
+char *convert(unsigned long num, int base, int lowercase);
+int _print_binary(va_list, flag_t *, mod_t *);
+int _print_hexa_upper(va_list, flag_t *, mod_t *);
+int _print_hexa_lower(va_list, flag_t *, mod_t *);
+int _print_octal(va_list, flag_t *, mod_t *);
+int _print_unsigned(va_list, flag_t *, mod_t *);
+int _print_address(va_list, flag_t *, mod_t *);
+int  _print_dec(va_list, flag_t *, mod_t *);
 
 #endif
