@@ -1,51 +1,48 @@
 #include "main.h"
 
 /**
- * _printf - formatted output conversion and print data.
- * @format: input string.
+ * _printf - main printf function
+ * @format: string parameter
  *
- * Return: number of chars printed.
+ * Return: count of characters in @format
  */
 int _printf(const char *format, ...)
 {
-	unsigned int i = 0, len = 0, ibuf = 0;
-	va_list arguments;
-	int (*function)(va_list, char *, unsigned int);
-	char *buffer;
+	va_list args;
+	const char *str;
+	int (*func)(va_list, flag_t *, mod_t *);
+	flag_t f = {0, 0, 0};
+	mod_t m = {0, 0, 0};
+	int i, count = 0, num = 0;
 
-	va_start(arguments, format), buffer = malloc(sizeof(char) * 1024);
-	if (!format || !buffer || (format[i] == '%' && !format[i + 1]))
+	va_start(args, format);
+	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
-	if (!format[i])
-		return (0);
-	for (i = 0; format && format[i]; i++)
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
+	for (str = format; *str; str++)
 	{
-		if (format[i] == '%')
+		if (*str == '%')
 		{
-			if (format[i + 1] == '\0')
-			{	print_buf(buffer, ibuf), free(buffer), va_end(arguments);
-				return (-1);
+			str++;
+			if (*str == '%')
+			{
+				count += _putchar('%');
+				continue;
 			}
-			else
-			{	function = get_print_func(format, i + 1);
-				if (function == NULL)
-				{
-					if (format[i + 1] == ' ' && !format[i + 2])
-						return (-1);
-					handl_buf(buffer, format[i], ibuf), len++, i--;
-				}
-				else
-				{
-					len += function(arguments, buffer, ibuf);
-					i += ev_print_func(format, i + 1);
-				}
-			} i++;
-		}
-		else
-			handl_buf(buffer, format[i], ibuf), len++;
-		for (ibuf = len; ibuf > 1024; ibuf -= 1024)
-			;
+			for (; get_flags(*str, &f); str++)
+			{}
+			for (i = 0; *str >= 48 && *str <= 57; str++, i++)
+				num = (num * (i * 10)) + (*str - '0');
+			set_width(num, &m);
+			for (; get_modifier(*str, &m); str++)
+			{}
+			func = get_func(*str);
+			count += (func) ? func(args, &f, &m)
+					: _printf("%%%c", *str);
+		} else
+			count += _putchar(*str);
 	}
-	print_buf(buffer, ibuf), free(buffer), va_end(arguments);
-	return (len);
+	_putchar(-1), va_end(args);
+	return (count);
 }
