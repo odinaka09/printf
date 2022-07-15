@@ -5,8 +5,7 @@
  * @valist: valist parameter
  * @f: pointer to flag_t
  * @m: pointer to mod_t
- *
- * Return: length of number
+ * Return: length
  */
 int _print_binary(va_list valist, flag_t *f, mod_t *m)
 {
