@@ -1,11 +1,10 @@
 #include "main.h"
 
 /**
- * _print_dec - prints decimal numbers to the screen
+ * _print_dec - prints decimal numbers
  * @valist: variable list of arguments
  * @f: pointer to flag_t
  * @m: pointer to mod_t
- *
  * Return: Always (0);
  */
 int _print_dec(va_list valist, flag_t *f, mod_t *m)
@@ -44,8 +43,8 @@ int _print_dec(va_list valist, flag_t *f, mod_t *m)
 
 
 /**
- * print_number - helps other functions print numbers to the screen
- * @n: integer parameter
+ * print_number - helps other functions print numbers to stdout
+ * @n: int parameter
  *
  * Return: void
  */
@@ -72,7 +71,7 @@ void print_number(long n)
 
 /**
  * count_digits - counts the number of digits in a number
- * @n: integer parameter
+ * @n: int parameter
  *
  * Return: number of digits
  */

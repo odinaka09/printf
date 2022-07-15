@@ -55,8 +55,11 @@ int _print_hexa_lower(va_list, flag_t *, mod_t *);
 int _print_octal(va_list, flag_t *, mod_t *);
 int _print_unsigned(va_list, flag_t *, mod_t *);
 int _print_address(va_list, flag_t *, mod_t *);
+int _print_percent(va_list, flag_t *, mod_t *);
+int _print_reverse(va_list, flag_t *, mod_t *);
+int _print_rot13(va_list, flag_t *, mod_t *);
 
-/* Get Function Pointer */
+/* Generate function pointer */
 int (*get_func(char c))(va_list, flag_t *, mod_t *);
 
 /* Set flags */

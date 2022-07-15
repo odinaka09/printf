@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _print_address - function to print address
+ * _print_address - prints addresses
  * @valist: variable arguments
  * @f: pointer to flag_t
  * @m: pointer to mod_t

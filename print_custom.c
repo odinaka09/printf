@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _print_percent - prints a percent out to the screen
+ * _print_percent - prints the "%" character to stdout
  * @valist: va_list parameter
  * @f: pointer to flag_t
  * @m: pointer to mod_t
@@ -18,7 +18,7 @@ int _print_percent(va_list valist, flag_t *f, mod_t *m)
 
 
 /**
- * _print_specifier - function to handle custom conversion specifier
+ * _print_specifier - handles custom conversion specifier
  * @valist: variable list of arguments
  * @f: pointer to flag_t
  * @m: pointer to mod_t
@@ -89,12 +89,13 @@ int _print_reverse(va_list valist, flag_t *f, mod_t *m)
 }
 
 /**
- * _print_rot13 - prints the rot13 encoding of certain letters
+ * _print_rot13 - prints the rot13 encoding of a
+ * combination of characters
  * @valist: va_list parameter
  * @f: pointer to flag_t
  * @m: pointer to mod_t
  *
- * Return: count of characters
+ * Return: character count
  */
 int _print_rot13(va_list valist, flag_t *f, mod_t *m)
 {

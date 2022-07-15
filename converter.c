@@ -1,12 +1,11 @@
 #include "main.h"
 
 /**
- * convert - converts a decimal number into any number base
+ * convert - converts a decimal number into any other base
  * @num: unsigned int parameter
  * @base: int parameter
  * @lowercase: int parameter
- *
- * Return: ptr to beginning of string
+ * Return: pointer to the string
  */
 char *convert(unsigned long int num, int base, int lowercase)
 {
